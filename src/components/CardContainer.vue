@@ -1,10 +1,17 @@
 <script>
 import AppCard from './AppCard.vue'
 
+import { store } from '../store';
+
 export default {
     name: "CardContainer",
     components: {
         AppCard
+    },
+    data() {
+        return {
+            store,
+        }
     }
 }
 </script>
@@ -13,11 +20,7 @@ export default {
     <div class="container">
         <div class="result"></div>
         <div class="row">
-            <AppCard />
-            <AppCard />
-            <AppCard />
-            <AppCard />
-            <AppCard />
+            <AppCard v-for="character in store.charactersList" />
         </div>
 
     </div>
