@@ -22,10 +22,13 @@ export default {
   methods: {
     getCharacters() {
       axios
+        // ricevi dati da...
         .get(store.apiURL)
+
+        // ... e stampali in pagina
         .then((res => {
-          console.log(res.data);
-          store.charactersList = res.data;
+          console.log(res.data.data);
+          store.charactersList = res.data.data;
         }))
         .catch((err) => {
           console.log("errori", err);
