@@ -2,14 +2,17 @@
 
 export default {
     name: "AppCard",
+    props: {
+        info: Object
+    }
 }
 </script>
 
 <template>
     <div class="card">
-        <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="img">
-        <h4>nome della card</h4>
-        <div>categoria</div>
+        <img :src="info.card_images[0].image_url" alt="img">
+        <h4>{{ info.name }}</h4>
+        <div>{{ info.archetype }}</div>
     </div>
 </template>
 
