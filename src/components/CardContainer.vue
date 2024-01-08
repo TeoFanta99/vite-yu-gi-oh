@@ -10,7 +10,12 @@ export default {
 <template>
     <div class="container">
         <div class="result"></div>
-        <AppCard />
+        <div class="row">
+            <div class="col-6 col-md-4 col-lg-3 mb-5">
+                <AppCard />
+            </div>
+        </div>
+
     </div>
 </template>
 
