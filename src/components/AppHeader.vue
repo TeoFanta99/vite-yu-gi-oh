@@ -4,6 +4,15 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+    <header>
+        <h1>Yu Gi Oh</h1>
+    </header>
+</template>
 
-<style scoped></style>
+<style lang="scss">
+header {
+    min-height: 100px;
+    background-color: green;
+}
+</style>
