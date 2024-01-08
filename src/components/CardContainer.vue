@@ -20,6 +20,7 @@ export default {
     <div class="container">
         <div class="result"></div>
         <div class="row">
+            <!-- elemento da iterare -->
             <AppCard v-for="character in store.charactersList" />
         </div>
 
