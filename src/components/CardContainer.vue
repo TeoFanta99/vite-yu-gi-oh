@@ -21,7 +21,7 @@ export default {
         <div class="result"></div>
         <div class="row">
             <!-- elemento da iterare -->
-            <AppCard v-for="character in store.charactersList" />
+            <AppCard v-for="character in store.charactersList" :info="character" />
         </div>
 
     </div>
