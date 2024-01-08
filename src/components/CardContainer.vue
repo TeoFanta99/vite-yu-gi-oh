@@ -2,8 +2,10 @@
 import AppCard from './AppCard.vue'
 
 export default {
-    components: AppCard,
     name: "CardContainer",
+    components: {
+        AppCard
+    }
 }
 </script>
 
@@ -11,9 +13,11 @@ export default {
     <div class="container">
         <div class="result"></div>
         <div class="row">
-            <div class="col-6 col-md-4 col-lg-3 mb-5">
-                <AppCard />
-            </div>
+            <AppCard />
+            <AppCard />
+            <AppCard />
+            <AppCard />
+            <AppCard />
         </div>
 
     </div>
@@ -29,6 +33,12 @@ export default {
     .result {
         background-color: #212529;
         min-height: 40px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
     }
 }
 </style>
