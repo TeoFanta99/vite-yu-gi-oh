@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  hi
+  <AppHeader />
 </template>
 
 <style lang="sass">
