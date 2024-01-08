@@ -15,7 +15,6 @@ export default {
 <style lang="scss">
 header {
     min-height: 80px;
-    background-color: green;
     display: flex;
     align-items: center;
     padding-left: 10px;
