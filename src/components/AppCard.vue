@@ -7,7 +7,7 @@ export default {
 
 <template>
     <div class="card">
-        <img src="#" alt="img">
+        <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="img">
         <h4>nome della card</h4>
         <div>categoria</div>
     </div>
@@ -18,5 +18,9 @@ export default {
     min-height: 100px;
     width: calc((100% / 5) - 5px);
     background-color: orange;
+
+    img {
+        width: 100%;
+    }
 }
 </style>
