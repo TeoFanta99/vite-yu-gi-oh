@@ -79,7 +79,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch @filter="getCharacters" />
+    <AppSearch />
     <CardContainer />
   </main>
 </template>
