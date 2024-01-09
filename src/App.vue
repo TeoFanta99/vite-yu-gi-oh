@@ -25,6 +25,18 @@ export default {
     getCharacters() {
       let myURL = store.apiURL;
       let myArchURL = store.optionApiURL;
+      console.log("entrato nella funzione");
+
+      // filtrare le cards in base all'archetipo 
+      if (store.archParam !== "") {
+
+        // verifico se contiene o meno dei parametri
+        if (myURL.includes('?')) {
+          myURL += `&archetype=${store.archParam}`;
+        } else {
+          myURL += `?archetype=${store.archParam}`;
+        }
+      }
 
       // chiamata API per i characters
       axios
@@ -49,21 +61,11 @@ export default {
           console.log("errori", err);
         })
 
-      // filtrare le cards in base all'archetipo 
-      if (store.archParam !== "") {
-
-        // verifico se contiene o meno dei parametri
-        if (myURL.includes('?')) {
-          myURL += `&archetype=${store.archParam}`;
-        } else {
-          myURL += `?archetype=${store.archParam}`;
-        }
-      }
-
     },
   },
   created() {
     this.getCharacters();
+
   }
 }
 </script>
@@ -71,7 +73,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch @filter="filterArchetype" />
+    <AppSearch @filter="getCharacters" />
     <CardContainer />
   </main>
 </template>
