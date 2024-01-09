@@ -35,10 +35,18 @@ export default {
         .catch((err) => {
           console.log("errori", err);
         })
+    },
+    getSelection() {
+      axios
+        .get(store.optionApiURL)
+        .then((res => {
+          console.log(res.data);
+        }))
     }
   },
   created() {
     this.getCharacters();
+    this.getSelection();
   }
 }
 </script>
