@@ -26,23 +26,9 @@ export default {
       let myURL = store.apiURL;
       let myArchURL = store.optionApiURL;
 
-      if (store.searchText !== '') {
-        if (myURL.includes('?')) {
-          // se l'URL già contiene ?, aggiungo & e il nuovo parametro
-          myURL += `&${store.archParam}=${store.searchText}`;
-        } else {
-          // Se l'URL non contiene ancora parametri, aggiungi ? seguito dal nuovo parametro
-          myURL += `?${store.archParam}=${store.searchText}`;
-        }
-
-      }
-
       // chiamata API per i characters
       axios
-        // ricevi dati da...
         .get(myURL)
-
-        // ... e stampali in pagina
         .then((res => {
           console.log(res.data.data);
           store.charactersList = res.data.data;
@@ -52,13 +38,9 @@ export default {
         })
 
 
-
       // chiamata API per gli archetype
       axios
-        // ricevi dati da...
         .get(myArchURL)
-
-        // ... e stampali in pagina
         .then((res => {
           console.log(res.data);
           store.archList = res.data;
@@ -67,6 +49,16 @@ export default {
           console.log("errori", err);
         })
 
+      // filtrare le cards in base all'archetipo 
+      if (store.archParam !== "") {
+
+        // verifico se contiene o meno dei parametri
+        if (myURL.includes('?')) {
+          myURL += `&archetype=${store.archParam}`;
+        } else {
+          myURL += `?archetype=${store.archParam}`;
+        }
+      }
 
     },
   },
@@ -79,7 +71,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch />
+    <AppSearch @filter="filterArchetype" />
     <CardContainer />
   </main>
 </template>
