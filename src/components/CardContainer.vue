@@ -6,7 +6,7 @@ import { store } from '../store';
 export default {
     name: "CardContainer",
     components: {
-        AppCard
+        AppCard,
     },
     data() {
         return {
@@ -33,6 +33,7 @@ export default {
     width: 80%;
     min-height: 300px;
     padding: 20px;
+    margin: 20px auto;
 
     .result {
         background-color: #212529;
