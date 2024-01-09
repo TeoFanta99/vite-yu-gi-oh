@@ -8,5 +8,6 @@ export const store = reactive({
     optionApiURL: "https://db.ygoprodeck.com/api/v7/archetypes.php",
 
     filteredCardsList: [],
+    archParam: "",
 
 });
