@@ -24,7 +24,7 @@ export default {
   methods: {
     getCharacters() {
       let myURL = store.apiURL;
-      let myArchURL = store.optionApiURL;
+
       console.log("entrato nella funzione");
 
       // filtrare le cards in base all'archetipo 
@@ -48,8 +48,9 @@ export default {
         .catch((err) => {
           console.log("errori", err);
         })
-
-
+    },
+    getArchetype() {
+      let myArchURL = store.optionApiURL;
       // chiamata API per gli archetype
       axios
         .get(myArchURL)
@@ -60,12 +61,11 @@ export default {
         .catch((err) => {
           console.log("errori", err);
         })
-
-    },
+    }
   },
   created() {
     this.getCharacters();
-
+    this.getArchetype();
   }
 }
 </script>
