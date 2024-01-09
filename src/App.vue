@@ -2,6 +2,7 @@
 // importo components
 import AppHeader from './components/AppHeader.vue'
 import CardContainer from './components/CardContainer.vue'
+import AppSearch from './components/AppSearch.vue'
 
 // importo axios
 import axios from 'axios';
@@ -13,6 +14,7 @@ export default {
   components: {
     AppHeader,
     CardContainer,
+    AppSearch
   },
   data() {
     return {
@@ -44,6 +46,7 @@ export default {
 <template>
   <AppHeader />
   <main>
+    <AppSearch />
     <CardContainer />
   </main>
 </template>
@@ -57,7 +60,5 @@ main {
   padding: 20px;
   width: 100%;
   min-height: 700px;
-  display: flex;
-  justify-content: center;
 }
 </style>
