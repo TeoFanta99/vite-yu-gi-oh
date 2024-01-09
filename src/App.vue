@@ -23,9 +23,24 @@ export default {
   },
   methods: {
     getCharacters() {
+      let myURL = store.apiURL;
+      let myArchURL = store.optionApiURL;
+
+      if (store.searchText !== '') {
+        if (myURL.includes('?')) {
+          // se l'URL già contiene ?, aggiungo & e il nuovo parametro
+          myURL += `&${store.archParam}=${store.searchText}`;
+        } else {
+          // Se l'URL non contiene ancora parametri, aggiungi ? seguito dal nuovo parametro
+          myURL += `?${store.archParam}=${store.searchText}`;
+        }
+
+      }
+
+      // chiamata API per i characters
       axios
         // ricevi dati da...
-        .get(store.apiURL)
+        .get(myURL)
 
         // ... e stampali in pagina
         .then((res => {
@@ -35,18 +50,28 @@ export default {
         .catch((err) => {
           console.log("errori", err);
         })
-    },
-    getSelection() {
+
+
+
+      // chiamata API per gli archetype
       axios
-        .get(store.optionApiURL)
+        // ricevi dati da...
+        .get(myArchURL)
+
+        // ... e stampali in pagina
         .then((res => {
           console.log(res.data);
+          store.archList = res.data;
         }))
-    }
+        .catch((err) => {
+          console.log("errori", err);
+        })
+
+
+    },
   },
   created() {
     this.getCharacters();
-    this.getSelection();
   }
 }
 </script>
@@ -54,7 +79,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch />
+    <AppSearch @filter="getCharacters" />
     <CardContainer />
   </main>
 </template>
